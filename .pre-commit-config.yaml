@@ -5,6 +5,7 @@ repos:
   -   id: check-yaml
   -   id: end-of-file-fixer
   -   id: trailing-whitespace
+  -   id: check-yaml
 - repo: https://github.com/psf/black
   rev: 24.4.2
   hooks:
@@ -24,3 +25,19 @@ repos:
   rev: 1.5.1
   hooks:
     - id: poetry-check
+
+
+- repo: local
+  hooks:
+    - id: export-dev-requirements
+      name: Export DEVELOPMENT requirements
+      language: system
+      pass_filenames: false
+      entry: poetry export --without-hashes --with dev --output requirements/dev.txt
+      files: ^(pyproject.toml|poetry.lock)$
+    - id: export-prod-requirements
+      name: Export PRODUCTION requirements
+      language: system
+      pass_filenames: false
+      entry: poetry export --without-hashes --without dev --output requirements/prod.txt
+      files: ^(pyproject.toml|poetry.lock)$
