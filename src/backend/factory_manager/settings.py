@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "directory.apps.DirectoryConfig",
     "rest_framework",
     "rest_framework.authtoken",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -35,6 +36,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "factory_manager.urls"
@@ -74,7 +76,7 @@ else:
             "NAME": os.getenv("DB_NAME", "postgres"),
             "USER": os.getenv("POSTGRES_USER", "postgres"),
             "PASSWORD": os.getenv("POSTGRES_PASSWORD", "admin"),
-            "HOST": os.getenv("DB_HOST", "db"),
+            "HOST": os.getenv("DB_HOST", "localhost"),
             "PORT": os.getenv("DB_PORT", 5432),
         }
     }
@@ -125,4 +127,12 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
+}
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
 }
