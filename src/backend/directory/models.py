@@ -23,9 +23,7 @@ class Section(models.Model):
 
 class Equipment(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    sections = models.ManyToManyField(
-        Section, related_name="equipment", through="equipment_sections"
-    )
+    sections = models.ManyToManyField(Section, related_name="equipment")
 
     def __str__(self) -> str:
         return self.name
