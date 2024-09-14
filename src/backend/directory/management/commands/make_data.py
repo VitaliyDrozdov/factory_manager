@@ -22,4 +22,4 @@ class Command(BaseCommand):
                 section = Section.objects.create(name=fake.bs(), factory=factory)
                 equipment_add = random.sample(equipment_pool, random.randint(2, 5))
                 section.equipment.add(*equipment_add)
-        self.stdout.write(self.style.SUCCESS("Моковые данные успешно созданы!"))
+        self.stdout.write(self.style.SUCCESS("Данные успешно созданы!"))

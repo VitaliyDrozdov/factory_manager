@@ -31,6 +31,15 @@ class SectionReadSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "equipment"]
 
 
+class SectionReadShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Section
+        fields = [
+            "id",
+            "name",
+        ]
+
+
 class FactoryReadSerializer(serializers.ModelSerializer):
 
     sections = SectionReadSerializer(many=True, read_only=True)
@@ -38,6 +47,13 @@ class FactoryReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Factory
         fields = ["id", "name", "sections"]
+
+
+class FactoryReadShortSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Factory
+        fields = ["id", "name"]
 
 
 class FactoryWriteSerializer(serializers.ModelSerializer):
