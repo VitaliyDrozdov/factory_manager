@@ -2,7 +2,7 @@ from directory.models import Equipment, Factory, Section
 from rest_framework import serializers
 
 
-class EquipmentSerializer(serializers.ModelField):
+class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Equipment
         fields = [
@@ -10,7 +10,7 @@ class EquipmentSerializer(serializers.ModelField):
         ]
 
 
-class SectionSerializer(serializers.ModelField):
+class SectionSerializer(serializers.ModelSerializer):
     equipment = EquipmentSerializer(many=True, read_only=True)
 
     class Meta:
@@ -18,7 +18,7 @@ class SectionSerializer(serializers.ModelField):
         fields = ["name", "equipment"]
 
 
-class FactorySerializer(serializers.ModelField):
+class FactorySerializer(serializers.ModelSerializer):
     sections = SectionSerializer(many=True, read_only=True)
 
     class Meta:
