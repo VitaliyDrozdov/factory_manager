@@ -12,7 +12,6 @@ from rest_framework.permissions import SAFE_METHODS
 
 class FactoryViewSet(viewsets.ModelViewSet):
     queryset = Factory.objects.all()
-    paginate_by = 10
 
     def get_serializer_class(self):
         if self.request.method in SAFE_METHODS:
@@ -22,7 +21,6 @@ class FactoryViewSet(viewsets.ModelViewSet):
 
 class SectionViewSet(viewsets.ModelViewSet):
     queryset = Section.objects.all()
-    paginate_by = 10
 
     def get_serializer_class(self):
         if self.request.method in SAFE_METHODS:
