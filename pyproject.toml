@@ -11,6 +11,7 @@ Django = "^4.2.5"
 python-dotenv = "~1.0"
 psycopg2-binary = "~2.9"
 djangorestframework = "3.15.1"
+faker = "^28.4.1"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.0"
