@@ -35,6 +35,7 @@ repos:
       pass_filenames: false
       entry: poetry export --without-hashes --with dev --output requirements/dev.txt
       files: ^(pyproject.toml|poetry.lock)$
+
     - id: export-prod-requirements
       name: Export PRODUCTION requirements
       language: system
