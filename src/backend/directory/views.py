@@ -8,9 +8,8 @@ from directory.serializers import (
     SectionReadShortSerializer,
     SectionWriteSerializer,
 )
-
-# from django.utils.decorators import method_decorator
-# from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import viewsets
 from rest_framework.permissions import SAFE_METHODS
 from rest_framework.response import Response
@@ -26,9 +25,9 @@ class FactoryViewSet(viewsets.ModelViewSet):
             return FactoryReadSerializer
         return FactoryWriteSerializer
 
-    # @method_decorator(cache_page(60 * 5))
-    # def list(self, request, *args, **kwargs):
-    #     return super().list(request, *args, **kwargs)
+    @method_decorator(cache_page(60 * 5))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 
 class SectionViewSet(viewsets.ModelViewSet):
@@ -45,9 +44,9 @@ class EquipmentViewSet(viewsets.ModelViewSet):
     serializer_class = EquipmentSerializer
     paginate_by = 10
 
-    # @method_decorator(cache_page(60 * 5))
-    # def list(self, request, *args, **kwargs):
-    #     return super().list(request, *args, **kwargs)
+    @method_decorator(cache_page(60 * 5))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 
 class TreeAPIView(APIView):

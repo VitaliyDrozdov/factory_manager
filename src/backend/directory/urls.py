@@ -4,7 +4,6 @@ from directory.views import (
     SectionViewSet,
     TreeAPIView,
 )
-from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
@@ -18,6 +17,5 @@ router_v1.register(r"equipment", EquipmentViewSet, basename="equipment")
 
 urlpatterns = [
     path("", include(router_v1.urls)),
-    path("admin/", admin.site.urls),
     path("tree/", TreeAPIView.as_view(), name="tree"),
 ]
