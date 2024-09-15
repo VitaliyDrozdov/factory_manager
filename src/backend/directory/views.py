@@ -1,3 +1,4 @@
+from directory.docs import tree_post_docs
 from directory.models import Equipment, Factory, Section
 from directory.serializers import (
     EquipmentSerializer,
@@ -54,6 +55,7 @@ class TreeAPIView(APIView):
     Получение родительских или дочерних объектов на разных уровнях.
     """
 
+    @tree_post_docs
     def post(self, request, *args, **kwargs):
         obj_type = request.data.get("type")
         obj_id = request.data.get("id")
