@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "directory.apps.DirectoryConfig",
     "rest_framework",
     "rest_framework.authtoken",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [

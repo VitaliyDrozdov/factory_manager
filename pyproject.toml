@@ -16,13 +16,15 @@ redis = "^5.0.8"
 hiredis = "^3.0.0"
 gunicorn = "^23.0.0"
 drf-yasg = "^1.21.7"
+setuptools = "^74.1.2"
+django-debug-toolbar = "^4.2.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.0"
 flake8 = "^7.0.0"
 isort = "^5.13.2"
 black = "^24.4.0"
-django-debug-toolbar = "^4.2.0"
+
 
 
 
