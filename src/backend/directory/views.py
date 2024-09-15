@@ -19,6 +19,10 @@ from rest_framework.views import APIView
 
 
 class FactoryViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet для управления фабриками.
+    """
+
     queryset = Factory.objects.all()
 
     def get_serializer_class(self):
@@ -32,6 +36,10 @@ class FactoryViewSet(viewsets.ModelViewSet):
 
 
 class SectionViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet для управления участками.
+    """
+
     queryset = Section.objects.all()
 
     def get_serializer_class(self):
@@ -41,6 +49,10 @@ class SectionViewSet(viewsets.ModelViewSet):
 
 
 class EquipmentViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet для управления оборудованием.
+    """
+
     queryset = Equipment.objects.all()
     serializer_class = EquipmentSerializer
     paginate_by = 10
@@ -52,7 +64,9 @@ class EquipmentViewSet(viewsets.ModelViewSet):
 
 class TreeAPIView(APIView):
     """
-    Получение родительских или дочерних объектов на разных уровнях.
+    APIView для получения родительских или дочерних объектов на разных уровнях.
+    В зависимости от типа объекта (factory, section, equipment) и уровня, возвращает
+    либо информацию об объекте, либо связанные объекты другого уровня.
     """
 
     @tree_post_docs

@@ -1,10 +1,11 @@
-from django.contrib.auth import get_user_model
 from django.db import models
-
-User = get_user_model()
 
 
 class Factory(models.Model):
+    """
+    Реализация справочника уровня фабрики.
+    """
+
     name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
@@ -12,6 +13,10 @@ class Factory(models.Model):
 
 
 class Section(models.Model):
+    """
+    Реализация справочника уровня участка.
+    """
+
     name = models.CharField(max_length=255, unique=True)
     factory = models.ForeignKey(
         Factory, related_name="sections", on_delete=models.CASCADE
@@ -22,6 +27,10 @@ class Section(models.Model):
 
 
 class Equipment(models.Model):
+    """
+    Реализация справочника уровня оборудования.
+    """
+
     name = models.CharField(max_length=255, unique=True)
     sections = models.ManyToManyField(Section, related_name="equipment")
 
