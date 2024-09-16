@@ -8,7 +8,7 @@
 [![Django][Django-badge]][Django-url]
 [![DRF][DRF-badge]][DRF-url]
 [![Postgres][Postgres-badge]][Postgres-url]
-![Redis] [Redis-badge][Redis-url]
+[![Redis][Redis-badge]][Redis-url]
 
 
 ## Архитектура проекта
@@ -29,7 +29,7 @@
 2. **Docker**
 
 
-# Разворачиваем проект в контейнерах
+## Разворачиваем проект в контейнерах
 1. Создаём `.env` файл в корневой директории проекта и заполняем его по
 образцу `.env.example`
 
@@ -38,23 +38,28 @@
    docker compose -f infra/docker-compose.local.yml up -d
    ```
 
-# После запуска контейнеров сервисы будут доступны по адресам:
+## После запуска контейнеров сервисы будут доступны по адресам:
 
-```http://localhost:8000/api/```
+```shell
+http://localhost:8000/api/
+```
 
-# Администритрование серисов осуществляется через админ-зону:
+## Администритрование серисов осуществляется через админ-зону:
 
-```http://localhost:8000/admin/```
+```shell
+http://localhost:8000/admin/
+```
 
-# Описание эндпоинтов:
+## Описание эндпоинтов:
 
-```http://localhost:8000/swagger/```
+```shell
+http://localhost:8000/swagger/
+```
 
 
 ## Администрирование развёрнутого приложения
 ### Создание суперпользователя
 
-Создаем суперпользователя:
 ```shell
 docker exec -it backend python manage.py createsuperuser
 ```
@@ -78,5 +83,5 @@ docker exec -it backend python manage.py createsuperuser
 
 [Postgres-badge]: https://img.shields.io/badge/postgres-306189?style=for-the-badge&logo=postgresql&logoColor=white
 
-[Redis-badge]:(https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+[Redis-badge]:https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white
 [Redis-url]: https://redis.io/
