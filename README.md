@@ -34,9 +34,14 @@
 образцу `.env.example`
 
 2. Поднимаем контейнеры
+
+   ```shell
+   cd factory_manager
+   ```
    ```shell
    docker compose -f infra/docker-compose.local.yml up -d
    ```
+
 
 ## После запуска контейнеров сервисы будут доступны по адресам:
 
