@@ -60,7 +60,7 @@ docker exec -it backend python manage.py make_data
 http://localhost:8000/api/
 ```
 
-### Администритрование серисов осуществляется через админ-зону:
+### Администрирование серисов осуществляется через админ-зону:
 
 ```shell
 http://localhost:8000/admin/
